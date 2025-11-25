@@ -5,35 +5,42 @@ export default function BannerSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [resetInterval, setResetInterval] = useState(0);
 
-  // Data banner - ganti dengan data Anda
+  // Data banner voucher game
   const banners = [
     {
       id: 1,
-      title: "Selamat Datang",
-      subtitle: "Temukan produk terbaik untuk kebutuhan Anda",
-      bgColor: "from-blue-500 to-purple-600",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=400&fit=crop"
+      title: "Top Up Game Tercepat",
+      subtitle: "Voucher game favorit kamu tersedia 24/7 dengan proses instan",
+      bgColor: "from-blue-600 to-purple-700",
+      image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=1200&h=400&fit=crop"
     },
     {
       id: 2,
-      title: "Diskon Spesial",
-      subtitle: "Dapatkan diskon hingga 50% untuk produk pilihan",
-      bgColor: "from-pink-500 to-rose-600",
-      image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&h=400&fit=crop"
+      title: "Promo Spesial 30%",
+      subtitle: "Beli voucher Mobile Legends, Free Fire, PUBG dan dapatkan bonus diamond!",
+      bgColor: "from-red-500 to-pink-600",
+      image: "https://images.unsplash.com/photo-1556438064-2d7646166914?w=1200&h=400&fit=crop"
     },
     {
       id: 3,
-      title: "Koleksi Terbaru",
-      subtitle: "Jelajahi koleksi terbaru kami yang menarik",
-      bgColor: "from-green-500 to-teal-600",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=400&fit=crop"
+      title: "Harga Termurah Se-Indonesia",
+      subtitle: "Jaminan harga paling murah untuk semua voucher game populer",
+      bgColor: "from-green-500 to-emerald-600",
+      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=400&fit=crop"
     },
     {
       id: 4,
-      title: "Gratis Ongkir",
-      subtitle: "Nikmati gratis ongkir untuk pembelian minimal",
-      bgColor: "from-orange-500 to-amber-600",
-      image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&h=400&fit=crop"
+      title: "Cashback Hingga 50rb",
+      subtitle: "Top up sekarang dan dapatkan cashback untuk pembelian berikutnya",
+      bgColor: "from-orange-500 to-yellow-500",
+      image: "https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=1200&h=400&fit=crop"
+    },
+    {
+      id: 5,
+      title: "Payment Lengkap & Aman",
+      subtitle: "Bayar dengan QRIS, E-Wallet, Transfer Bank atau Pulsa - 100% Aman",
+      bgColor: "from-indigo-600 to-blue-700",
+      image: "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=1200&h=400&fit=crop"
     }
   ];
 
@@ -47,7 +54,7 @@ export default function BannerSlider() {
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
-    setResetInterval(prev => prev + 1); // Reset interval
+    setResetInterval(prev => prev + 1);
   };
 
   // Auto slide setiap 5 detik
@@ -57,7 +64,7 @@ export default function BannerSlider() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [nextSlide, resetInterval]); // Dependency pada resetInterval untuk reset timer
+  }, [nextSlide, resetInterval]);
 
   // Handle drag untuk desktop dan mobile
   const [isDragging, setIsDragging] = useState(false);
@@ -137,7 +144,7 @@ export default function BannerSlider() {
                     {banner.subtitle}
                   </p>
                   <button className="mt-6 px-8 py-3 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-                    Lihat Selengkapnya
+                    Beli Sekarang
                   </button>
                 </div>
               </div>
@@ -160,11 +167,6 @@ export default function BannerSlider() {
             />
           ))}
         </div>
-      </div>
-
-      {/* Info */}
-      <div className="mt-6 text-center text-gray-600 text-sm">
-        <p>Drag/geser untuk navigasi • Auto-slide setiap 5 detik</p>
       </div>
     </div>
   );
