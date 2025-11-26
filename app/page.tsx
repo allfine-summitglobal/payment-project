@@ -656,7 +656,7 @@ export default function Home() {
 
   return (
     <div className="min-h-300 bg-gray-50 p-4">
-      <div className="w-10/12 mx-auto">
+      <div className="w-10/10 lg:w-11/12 mx-auto">
         {/* Server-rendered content untuk SEO - Hidden dari user tapi visible untuk crawler */}
         <div className="sr-only">
           <h2>Semua Produk Voucher Game dan Premium</h2>
@@ -667,7 +667,7 @@ export default function Home() {
                 <article key={prod.slug}>
                   <h4>{prod.title} title</h4>
                   <p>{prod.subTitle}</p>
-                  <Link href={`/product/${prod.slug}`}>
+                  <Link href={`/(product)/${prod.slug}`}>
                     Beli {prod.title} - {prod.subTitle}
                   </Link>
                 </article>

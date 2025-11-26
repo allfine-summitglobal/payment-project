@@ -1,17 +1,32 @@
-/**
- * Memotong teks menjadi panjang maksimal tertentu
- * @param text - Teks yang akan dipotong
- * @param maxLength - Panjang maksimal karakter
- * @param suffix - Suffix yang ditambahkan (default: '...')
- * @returns Teks yang sudah dipotong
- */
-export function truncate(
-  text: string,
-  maxLength: number = 20,
-  suffix: string = '...'
-): string {
-  if (!text) return '';
-  if (text.length <= maxLength) return text;
+import { useState, useEffect } from 'react';
 
-  return text.slice(0, maxLength - suffix.length).trim() + suffix;
+export function useResponsiveTruncate() {
+  const [maxLength, setMaxLength] = useState(100);
+
+  useEffect(() => {
+    const updateMaxLength = () => {
+      const width = window.innerWidth;
+
+        // Mobile
+      if (width < 640) {
+        setMaxLength(30);
+        // Tablet
+      } else if (width < 768) {
+        setMaxLength(50);
+        // Desktop kecil
+      } else if (width < 1024) {
+        setMaxLength(80);
+        // Desktop besar
+      } else {
+        setMaxLength(120);
+      }
+    };
+
+    updateMaxLength();
+    window.addEventListener('resize', updateMaxLength);
+
+    return () => window.removeEventListener('resize', updateMaxLength);
+  }, []);
+
+  return maxLength;
 }

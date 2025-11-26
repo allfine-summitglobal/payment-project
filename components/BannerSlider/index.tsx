@@ -92,10 +92,10 @@ export default function BannerSlider() {
 
     if (movedBy < -75) {
       nextSlide();
-      setResetInterval(prev => prev + 1); // Reset interval
+      setResetInterval(prev => prev + 1);
     } else if (movedBy > 75) {
       prevSlide();
-      setResetInterval(prev => prev + 1); // Reset interval
+      setResetInterval(prev => prev + 1);
     }
 
     setCurrentTranslate(0);
@@ -103,11 +103,11 @@ export default function BannerSlider() {
   };
 
   return (
-    <div className="w-full mx-auto px-4 py-8">
-      <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+    <div className="">
+      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl">
         {/* Banner Container */}
         <div
-          className="relative h-[400px] md:h-[500px] cursor-grab active:cursor-grabbing"
+          className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] cursor-grab active:cursor-grabbing"
           onMouseDown={handleDragStart}
           onMouseMove={handleDragMove}
           onMouseUp={handleDragEnd}
@@ -135,15 +135,15 @@ export default function BannerSlider() {
                 />
               </div>
 
-              <div className="relative h-full flex items-center justify-center text-center px-8">
-                <div className="text-white space-y-4">
-                  <h2 className="text-4xl md:text-6xl font-bold tracking-tight animate-fade-in">
+              <div className="relative h-full flex items-center justify-center text-center px-4 sm:px-6 md:px-8 lg:px-12">
+                <div className="text-white space-y-2 sm:space-y-3 md:space-y-4 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl">
+                  <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight animate-fade-in leading-tight">
                     {banner.title}
                   </h2>
-                  <p className="text-lg md:text-2xl font-light max-w-2xl mx-auto animate-fade-in-delay">
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl font-light animate-fade-in-delay leading-relaxed">
                     {banner.subtitle}
                   </p>
-                  <button className="mt-6 px-8 py-3 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                  <button className="mt-3 sm:mt-4 md:mt-6 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 bg-white text-gray-900 rounded-full text-xs sm:text-sm md:text-base font-semibold hover:bg-gray-100 transition-colors shadow-lg">
                     Beli Sekarang
                   </button>
                 </div>
@@ -153,15 +153,15 @@ export default function BannerSlider() {
         </div>
 
         {/* Dots Indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+        <div className="absolute bottom-3 sm:bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3">
           {banners.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 rounded-full ${
                 index === currentSlide
-                  ? 'bg-white w-8 h-3'
-                  : 'bg-white/50 w-3 h-3 hover:bg-white/75'
+                  ? 'bg-white w-6 sm:w-8 h-2 sm:h-3'
+                  : 'bg-white/50 w-2 sm:w-3 h-2 sm:h-3 hover:bg-white/75'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />

@@ -44,7 +44,7 @@ export default function TabProduct({ data }: TabProductProps) {
       label: category.name,
       children: (
         <div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 p-4">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-1 p-4">
             {displayedProducts.map((product, index) => (
               <div
                 key={product.slug || index.toString()}
